@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>D3 vis</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+
+    <style>
+        .change_color:hover {
+            fill: red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!--  Model -->
+
+    <script>
+
+        let dataset = [10, 12, 13, 14];
+        var w = 500, h = 200;
+
+        const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+        svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => i * 30)
+        .attr("y", (d, i) => h - 3 * d)
+        .attr("width", 25)
+        .attr("height", (d, i) => 3 * d)
+        .attr("fill", "navy")
+        .attr("class", "change_color")
+        .append('title')
+        .text((d)=>d)
+
+        svg.selectAll("text")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .text((d) => d)
+        .attr("x", (d, i) => i * 30)
+        .attr("y", (d, i) => h - (3 * d) - 3)
+        
+
+    </script>
+    
+</body>
+</html>

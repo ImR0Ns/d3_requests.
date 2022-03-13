@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX requests</title>
+</head>
+<body>
+    
+    <script>
+
+        /* fetch('./for_req.html')
+        .then((result)=>result.json())
+        .then((data)=>console.log(data)) */
+
+        fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json')
+        .then((result)=>result.json())
+        .then((data)=>{
+            console.log(data) // default obj parsed
+        })
+
+        //old way
+
+        /* var req = new XMLHttpRequest()
+        req.open('GET', './for_req.html', true)
+        req.send()
+        req.onload = function(){
+            var json = JSON.parse(req.responseText)
+            console.log(JSON.stringify(json))
+        } */
+
+    </script>
+
+</body>
+</html>
